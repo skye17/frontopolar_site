@@ -1,0 +1,78 @@
+{% extends "questions/base.html" %}
+
+{% block title%}
+  {{  block.super }}
+{% endblock title%}
+
+{% block user-block %}
+<div class= "not-authorized-user"> 
+	<p><a href="{% url 'questions:login' %}" >log in</a>
+	<a href="{% url 'questions:register' %}" >register</a></p>
+</div>
+{% endblock user-block %}
+
+{% block main-content %}
+<h2>Registration</h2><br>
+<form class="form-horizontal" role="form">
+
+<div class="alert alert-danger">
+  <strong>Sorry, this email address already registered</strong>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-md-1" for="login">Login</label>
+    <div class="col-md-offset-1 col-md-6">
+      	<input type="login" class="form-control" id="login">
+    </div>
+</div>
+  					
+<div class="form-group has-error has-feedback">					
+	<label class="control-label col-md-1" for="inputError2">Email</label>
+  		<div class="col-md-offset-1 col-md-6">
+  		<input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status" placeholder="dr.pepper@gmail.com" >
+  		<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+  		<span id="inputError2Status" class="sr-only">(error)</span>
+  		</div>
+</div>    								
+  								
+<div class="form-group">
+    <label class="control-label col-md-1" for="nickname">Nickname</label>
+    	<div class="col-md-offset-1 col-md-6">
+      		<input type="nickname" class="form-control" id="nickname">
+    	</div>
+</div> 								
+  								
+<div class="form-group">
+    <label class="control-label col-md-1" for="password">Password</label>
+    <div class="col-md-offset-1 col-md-6">
+      	<input type="password" class="form-control">
+    </div>
+</div>
+  								
+<div class="form-group">
+    <label class="control-label col-md-1" for="tags">Repeat password</label>
+    	<div class="col-md-offset-1 col-md-6">
+      		<input type="password" class="form-control">
+    	</div>
+</div>
+  								
+<div class="form-group">
+	<label class="control-label col-md-1" for="tags">Upload avatar</label>
+    		<div class="col-md-offset-1 col-md-6">
+    			<input type="file" id="exampleInputFile">
+    		</div>
+</div>
+  								
+<div class= "form-group">
+	<div class="col-md-offset-2 col-md-6">
+      		<button type="register" class="btn btn-success">Register!</button>
+    	</div>
+</div>
+
+</form>
+{% endblock main-content %}
+
+
+{% block extra-rightcolumn %}
+{{ block.super }}
+{% endblock extra-rightcolumn %}

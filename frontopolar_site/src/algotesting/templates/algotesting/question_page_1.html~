@@ -1,0 +1,64 @@
+{% extends "questions/base.html" %}
+{% block title %}
+  {{ block.super }}
+{% endblock title %}
+
+{% block user-block %}
+<div class= "not-authorized-user"> 
+	<p><a href="{% url 'questions:login' %}" >log in</a>
+	<a href="{% url 'questions:register' %}" >register</a></p>
+</div>
+{% endblock user-block %}
+
+{% block main-content %}
+
+<div class="question">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="avatar">
+				{% load staticfiles %}
+				<img src="{% static 'questions/images/avatar.png' %}">	
+			</div>
+									
+			<div class="rating-area">
+				<div class="input-group">
+          				<span class="input-group-btn">
+              					<button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant">
+                				<span class="glyphicon glyphicon-minus"></span>
+              					</button>
+          				</span>
+          							
+          				<input type="text" name="quant" class="form-control input-number" value="{{ question.rating }}" min="1" max="100">		
+          					<span class="input-group-btn">
+              						<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant">
+                  					<span class="glyphicon glyphicon-plus"></span>
+              						</button>
+          					</span>	
+      				</div>	
+			</div>		
+										
+		</div>
+										
+		<div class="col-md-5">			
+			<h3>{{ question.title }}</h3>
+			<p>{{ question.content }}<br><br><br></p>
+			<div class="tags">
+				<p>Tags:</p>
+				{% for tag in question.question_tags %}
+					<p><a href="{% url 'questions:tag' %}">{{ tag }}</a></p>
+				{% endfor %}
+			</div>	
+		</div>									
+	</div>
+</div>
+
+<div class="answers-area">
+	{% include "questions/answer_base.html" %}
+	{% include "questions/answer_base.html" %}
+</div>
+	
+{% endblock main-content %}
+
+{% block extra-rightcolumn %}
+  {{  block.super }}
+{% endblock extra-rightcolumn %}

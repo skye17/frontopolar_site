@@ -1,0 +1,24 @@
+<div class="form_base">
+<form class="form-horizontal" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group centered">
+        <div class="row">
+        <div class="col col-lg-12">
+
+            <label class="control-label">{{ field.label_tag }}</label>
+            {% if field.label_tag == 'Data:' %}
+            <span class="btn btn-default btn-file">
+                Browse <input type="file">
+            </span>
+            {% else%}
+                <div class="controls ">{{ field }}</div>
+            {% endif %}
+        </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% block button %}
+    {% endblock button %}
+</form>
+</div>

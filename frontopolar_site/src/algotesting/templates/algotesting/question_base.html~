@@ -1,0 +1,38 @@
+<div class="question">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="avatar">
+				<img src="../static/avatar.png">	
+			</div>
+									
+			<div class="rating-area">
+				<div class="input-group">
+          				<span class="input-group-btn">
+              					<button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant">
+                				<span class="glyphicon glyphicon-minus"></span>
+              					</button>
+          				</span>
+          							
+          				<input type="text" name="quant" class="form-control input-number" value="1" min="1" max="100">		
+          					<span class="input-group-btn">
+              						<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant">
+                  					<span class="glyphicon glyphicon-plus"></span>
+              						</button>
+          					</span>	
+      				</div>	
+			</div>		
+										
+		</div>
+										
+		<div class="col-md-5">			
+			<h3>How to build a moonpark?</h3>
+			<p>Question example<br><br><br></p>
+			{% block answer-counter %}{% endblock answer-counter%}
+			<div class="tags">
+				<p>Tags:</p>
+				<p><a href="tag.html">moonpark</a></p>
+				<p><a href="tag.html">build</a></p>
+			</div>	
+		</div>									
+	</div>
+</div>

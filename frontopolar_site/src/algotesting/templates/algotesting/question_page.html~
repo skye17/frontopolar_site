@@ -1,0 +1,27 @@
+{% extends "questions/base.html" %}
+{% block title %}
+  {{ block.super }}
+{% endblock title %}
+
+{% block user-block %}
+<div class= "not-authorized-user"> 
+	<p><a href="login.html" >log in</a>
+	<a href="register.html" >register</a></p>
+</div>
+{% endblock user-block %}
+
+{% block main-content %}
+
+{% include "question_base.html" %}
+
+<div class="answers-area">
+	{% include "questions/answer_base.html" %}
+	{% include "questions/answer_base.html" %}
+	{% include "questions/answer_base.html" %}	
+</div>
+	
+{% endblock main-content %}
+
+{% block extra-rightcolumn %}
+  {{  block.super }}
+{% endblock extra-rightcolumn %}

@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% block main-content %}
+<div class="row">
+    <div class="col-lg-offset-1">
+    <h4>Available datasets:</h4>
+
+    {% if datasets %}
+        <table class="table">
+            <tr>
+                <td>Name</td><td>Frequency</td><td>Features</td>
+            </tr>
+            {% for dataset in datasets %}
+                <tr>
+                    <td><a href="{% url 'algotesting:dataset_info' dataset.name %}">{{ dataset.name }}</a></td>
+                    <td>{{ dataset.frequency }}</td>
+                    <td>{{ dataset.columns }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endif %}
+    </div>
+</div>
+{% endblock main-content %}

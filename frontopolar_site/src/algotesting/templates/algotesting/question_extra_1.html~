@@ -1,0 +1,11 @@
+{% extends "questions/question_base_1.html" %}
+
+{% block answer-counter %}
+<div class = "additional">
+	<div class="answers-badge">
+		<button type="button" class="btn btn-link"><a href="{% url 'questions:detail' question.id %}""question_.html">answers  </a>
+			<span class="badge">  5</span>
+		</button>
+	</div>
+</div>
+{% endblock answer-counter %}

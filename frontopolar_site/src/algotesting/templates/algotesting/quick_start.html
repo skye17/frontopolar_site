@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block main-content %}
+<div class="container">
+    <div class="row">
+	    		<div class="col-lg-8 col-lg-offset-2 centered">
+	    			<h2>Welcome to the quick tutorial!</h2>
+	    			<p>We will test AAPL predictions on daily1.csv dataset:</p>
+                    <p>Set base capital to 10000: </p>
+                    <form enctype="multipart/form-data" method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class="form-group">
+                            <label class="control-label ">{{ field.label_tag }}</label>
+                            <div class="controls col-lg-offset-1 col-lg-10 centered">{{ field }}</div>
+                        </div>
+                        {% endfor %}
+                        <br>
+                        <input type="submit" class = "btn btn-success" value="Test!"/>
+                    </form>
+	    		</div><!-- /col-lg-8 -->
+    </div>
+</div>
+
+<br><br>
+{% endblock main-content %}

@@ -1,0 +1,87 @@
+{% extends "questions/base.html" %}
+{% block title%}
+  {{  block.super }}
+{% endblock title%}
+
+{% block user-block %}
+  {{  block.super }}
+{% endblock user-block %}
+
+{% block main-content %}
+
+<h3>Questions</h3>
+<ul class ="nav nav-tabs"> 
+	<li class ="active"><a href = "#">New Questions</a></li>
+	<li><a href = "#">Hot Questions</a></li>
+</ul>
+{% if questions %}
+    <ul>
+    {% for question in questions %}
+    <div class="question">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="avatar">
+				{% load staticfiles %}
+				<img src="{% static 'questions/images/avatar.png' %}">	
+			</div>
+									
+			<div class="rating-area">
+				<div class="input-group">
+          				<span class="input-group-btn">
+              					<button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant">
+                				<span class="glyphicon glyphicon-minus"></span>
+              					</button>
+          				</span>
+          							
+          				<input type="text" name="quant" class="form-control input-number" value="{{ question.rating }}" min="1" max="100">		
+          					<span class="input-group-btn">
+              						<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant">
+                  					<span class="glyphicon glyphicon-plus"></span>
+              						</button>
+          					</span>	
+      				</div>	
+			</div>		
+										
+		</div>
+										
+		<div class="col-md-5">			
+			<h3>{{ question.title }}</h3>
+			<p>{{ question.content }}<br><br><br></p>
+			<div class = "additional">
+				<div class="answers-badge">
+				<button type="button" class="btn btn-link"><a href="{% url 'questions:detail' question.id %}">answers  </a>
+					<span class="badge">  5</span>
+				</button>
+				</div>
+			</div>
+			<div class="tags">
+				<p>Tags:</p>
+				{% for tag in question.question_tags %}
+					<p><a href="{% url 'questions:tag' %}">tag</a></p>
+				{% endfor %}
+			</div>	
+		</div>									
+	</div>
+</div>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No questions are available.</p>
+{% endif %}
+
+<div> 
+	<ul class="pagination">
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a><li>
+	</ul>
+</div>
+
+{% endblock main-content %}
+
+{% block extra-rightcolumn %}
+{{ block.super }}
+{% endblock extra-rightcolumn %}
+

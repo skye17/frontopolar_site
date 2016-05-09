@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block main-content %}
+<div class="row">
+    <div class="col-lg-offset-1">
+    <h4>Available algorithms:</h4>
+
+    {% if algorithms %}
+        <table class="table">
+            <tr>
+                <td>Name</td><td>Description</td>
+            </tr>
+            {% for algorithm in algorithms %}
+                <tr>
+                    <td>{{ algorithm.name }}</td>
+                    <td>{{ algorithm.description }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endif %}
+    </div>
+</div>
+{% endblock main-content %}

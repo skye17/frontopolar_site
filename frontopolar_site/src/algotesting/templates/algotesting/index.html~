@@ -1,0 +1,20 @@
+{% extends "questions/base_questions_list_1.html" %}
+{% block title %}
+  {{  block.super }}
+{% endblock title %}
+
+{% block user-block %}
+<div class= "not-authorized-user"> 
+	<p><a href="{% url 'questions:login' %}" >log in</a>
+	<a href="{% url 'questions:register' %}" >register</a></p>
+</div>
+{% endblock user-block %}
+
+{% block main-content %}
+  {{ block.super }}
+{% endblock main-content %}
+
+{% block extra-rightcolumn %}
+  {{ block.super }}
+{% endblock extra-rightcolumn %}
+

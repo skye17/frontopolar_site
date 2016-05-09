@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+		{% load static %}
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+		<title>{% block title %}Ask Flow{% endblock title %}</title>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="container-fluid"> 
+				<div class="row">
+					<div class="col-md-8 ">
+						<div class= "top-bar col-md-offset-1">
+							{% load static %}
+							<div class = "logo"><img src= "{% static 'images/flow.jpg' %}">
+							<div class= "search-container">
+								<form class = "form-inline">
+									<div class="form-group has-feedback">	
+    									<label for="search">Search:</label>
+    									<div class="input-group">
+    										<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+    										<input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+  										</div>
+  									</div>
+								</form>
+							</div>
+							
+							<div class="button-flow"><button type = "button" class ="btn btn-success"><a href = "search.html">Flow!</a></button></div>
+						</div>
+					</div>
+					
+					<div class="col-md-4">
+						{% block user-block %}
+						{% endblock user-block %}
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="main">
+		<div class="container">
+			<div class= "row">
+				<div class="col-md-8">
+					{% block main-content %}{% endblock main-content %}
+				</div>
+
+				<div class="col-md-4">
+					{% block extra-rightcolumn %}{% endblock extra-rightcolumn %}
+					<div class = "tags">
+						<div class="panel panel-info">
+							<div class="panel-heading"><h2>Popular tags</h2></div>
+  							<div class="panel-body">
+								<a href = "tag.html">tag1</a>
+								<a href = "tag.html">tag2</a>
+								<a href = "tag.html">tag3</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="top-members">
+						<div class="panel panel-info">
+							<div class="panel-heading"><h2>Popular members</h2></div>
+  							<div class="panel-body">
+								<p><a href = "profile.html">Member 1</a></p>
+								<p><a href = "profile.html">Member 2</a></p>
+								<p><a href = "profile.html">Member 3</a></p>
+								<p><a href = "profile.html">Member 4</a></p>
+								<p><a href = "profile.html">Member 5</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="container-fluid">
+			<p>Footer</p>
+		</div>
+	</div>
+</body>
+
+</html>

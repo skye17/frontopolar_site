@@ -1,0 +1,90 @@
+{% extends "questions/base.html" %}
+{% block title %}
+  {{ block.super }}
+{% endblock title %}
+
+{% block user-block %}
+<div class= "authorized-user"> 
+	<div class="col-md-2">
+		{% load staticfiles %}
+		<div class= "avatar-header"><img src="{% static 'questions/images/avatar.png' %}"></div>
+	</div>
+	<div class = "col-md-2">
+		<h4><a href = "{% url 'questions:profile' %}">Username</a></h4>
+		<div class = "links"><a href="{% url 'questions:settings' %}" >settings</a>
+		<a href="{% url 'questions:index' %}" >log out</a></div>
+	</div>
+</div>
+{% endblock user-block %}
+
+{% block main-content %}
+<div class="question">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="avatar">
+				{% load staticfiles %}
+				<img src="{% static 'questions/images/avatar.png' %}">	
+			</div>
+									
+			<div class="rating-area">
+				<div class="input-group">
+          				<span class="input-group-btn">
+              					<button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant">
+                				<span class="glyphicon glyphicon-minus"></span>
+              					</button>
+          				</span>
+          							
+          				<input type="text" name="quant" class="form-control input-number" value="{{ question_rating }}" min="1" max="100">		
+          					<span class="input-group-btn">
+              						<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant">
+                  					<span class="glyphicon glyphicon-plus"></span>
+              						</button>
+          					</span>	
+      				</div>	
+			</div>		
+										
+		</div>
+										
+		<div class="col-md-5">			
+			<h3>{{ question.title }}</h3>
+			<p>{{ question.content }}<br><br><br></p>
+			<div class="tags">
+				<p>Tags:</p>
+				{% for tag in question.tags %}
+					<p><a href="questions/tag.html">{{ tag.name }}</a></p>
+				{% endfor %}
+			</div>	
+		</div>									
+	</div>
+</div>
+
+<div class="answers-area">
+	{% include "questions/answer_base.html" %}
+	{% include "questions/answer_base.html" %}
+</div>
+ 
+							
+<div class="new-answer">
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+    			<div class="col-md-8">
+      				<textarea  class="form-control" rows = 10 placeholder="Enter your answer here"></textarea>
+    			</div>
+  		</div>
+  								
+  		<div class="form-group">
+    			<div class="col-md-8">
+      				<button type="button" class = "btn btn-success">Answer</button>
+    			</div>
+  		</div>
+  								
+  	</form>
+</div>	
+
+{% endblock main-content %}
+
+{% block extra-rightcolumn %}
+<div class="new-question">
+	<button type = button class = "btn btn-default btn-lg"><a href = "{% url 'questions:ask' %}">New Question</a></button>
+</div>
+{% endblock extra-rightcolumn %}

@@ -1,0 +1,19 @@
+<div class="form_base">
+<form class="form-horizontal" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+        <div class="row">
+        <div class="col col-lg-12">
+            <label class="control-label">{{ field.label_tag }}</label>
+            <div class="controls ">{{ field }}</div>
+        </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <input type="submit" class = "btn btn-success" value="Add!"/>
+
+</form>
+</div>
+

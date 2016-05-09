@@ -1,0 +1,30 @@
+{% extends "questions/base_questions_list.html" %}
+{% block title%}
+  {{  block.super }}
+{% endblock title %}
+
+{% block user-block %}
+<div class= "authorized-user"> 
+	<div class="col-md-2">
+		{% load staticfiles %}
+		<div class= "avatar-header"><img src="{% static 'questions/images/avatar.png' %}"/></div>
+	</div>
+
+	<div class = "col-md-2">
+		<h4><a href = "{% url 'questions:profile' %}">Username</a></h4>
+		<div class = "links"><a href="{% url 'questions:settings' %}" >settings</a>
+		<a href="{% url 'questions:index' %}" >log out</a></div>
+	</div>
+</div>
+{% endblock user-block %}
+
+{% block main-content %}
+  {{  block.super }}
+{% endblock main-content %}
+
+{% block extra-rightcolumn %}
+<div class="new-question">
+	<button type = button class = "btn btn-default btn-lg"><a href = "{% url 'questions:ask' %}">New Question</a></button>
+</div>
+{% endblock extra-rightcolumn %}
+

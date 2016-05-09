@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+{% block main-content %}
+<div class="container">
+    <div class="row">
+	    		<div class="col-lg-12 centered">
+	    			<h2>Welcome to frontopolar testing system!</h2>
+	    			<h3>Choose data and parameters for testing:</h3>
+	    		</div>
+		        {% include 'algotesting/test_form.html' %}
+    </div>
+</div>
+<br><br>
+{% endblock main-content %}

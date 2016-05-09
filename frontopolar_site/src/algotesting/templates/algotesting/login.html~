@@ -1,0 +1,52 @@
+{% extends "questions/base.html" %}
+
+{% block title%}
+  {{  block.super }}
+{% endblock title%}
+
+{% block user-block %}
+<div class= "not-authorized-user"> 
+	<p><a href="{% url 'questions:login' %}" >log in</a>
+	<a href="{% url 'questions:register' %}" >register</a></p>
+</div>
+{% endblock user-block %}
+
+{% block main-content %}
+<h2>Log In</h2><br>
+<form class="form-horizontal" role="form">
+
+<div class="alert alert-danger">
+  <strong>Sorry, wrong password</strong>
+</div>
+
+<div class="form-group">
+    <label class="control-label col-md-1" for="login">Login</label>
+    <div class="col-md-offset-1 col-md-6">
+      	<input type="login" class="form-control" id="login">
+    </div>
+ </div>
+  								
+<div class="form-group">
+    <label class="control-label col-md-1" for="password">Password</label>
+    <div class="col-md-offset-1 col-md-6">
+      	<input type="password" class="form-control">
+    </div>
+</div>
+  								
+<div class= "form-group">
+	<div class="col-md-offset-2 col-md-6">
+      		<button type="register" class="btn btn-success">Log in!</button>
+    	</div>
+</div>
+  								
+<div class = "group">
+	<div class="col-md-offset-2 col-md-6">
+    		<a href="{% url 'questions:register' %}">create new account</a>
+    	</div>
+</div>
+</form>
+{% endblock main-content %}
+
+{% block extra-rightcolumn %}
+{{ block.super }}
+{% endblock extra-rightcolumn %}
